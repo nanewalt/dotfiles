@@ -1,12 +1,15 @@
-syntax on
-set number
-set cursorLine  " Highlight current line
-set tabstop=4  " Set tabs to 4 spaces
-set ignorecase  " Search is case insensitive
-set incsearch  " Highlight dynamically as search query is typed
-set noerrorbells  " Disable error bells
+syntax enable
+set number relativenumber   " Show relative line numbers with current line shown as absolute
+set ignorecase smartcase    " Perform case insensitive search for all lowercase or case sensitive when capitals are entered
+set incsearch               " Incremental search
+set tabstop=4               " Specifies width of tab character
+set shiftwidth=4            " Sets whitespace to insert when using indentation commands in normal mode
+set softtabstop=4           " Sets the number of columns to inc/dec column position
+set expandtab               " Use spaces instead of tab character
+set re=0                    " Prevent slow typescript syntax indexing
+set noerrorbells            " Turn off error bells
 
-" remaps
+" Remaps
 inoremap jj <Esc>
 
 " Plugins
@@ -17,5 +20,10 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
+" Plug 'dracula/vim', {'as': 'dracula'}
+Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main'}
 Plug 'tpope/vim-commentary'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
+
+colorscheme embark
